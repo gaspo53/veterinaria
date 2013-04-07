@@ -3,6 +3,10 @@ veterinaria
 
 Red Solidaria Veterinaria - Proyecto de Software 2007
 
+=========
+
+<b>You MUST read the file 'Entrega III.txt' before doing ANYTHING (in Spanish)</b>
+
 
 Pre-requisites
 --------------
