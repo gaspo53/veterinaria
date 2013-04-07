@@ -6,24 +6,27 @@ Usuarios en la BD:
 			fmelo 	|| 123456 (Participante) (Suspendido)
 			jberho || 123456 (Participante) (Desactivado)
 
-EN el directorio raíz, hay un archivo llamado "Datos.zip", que tiene un archivo de texto con cnsultas SQL par aimportar desde MySQL Server, 
+En la instalaciÃ³n del sistema, se puede CREAR la base de datos si no exsite. Tener en cuenta que depende del usuario, por permisos, da error. 
+Si es el caso de esta instalaciÃ³n, crear la base desde el DBMS y destildar la opciÃ³n en el instalador.
+
+En el directorio raï¿½z, hay un archivo llamado "Datos.zip", que tiene un archivo de texto con cnsultas SQL par aimportar desde MySQL Server, 
 y una carpeta llamada "files", la cual se debe reemplazar por la actual INMEDIATAMENTE DESPUES DE INSTALAR EL SITIO!!!!!!! Ya que con estos
-dos (2) archivos se tiene todo el lote de información de EJEMPLO que se cargó para probar la funcionalidad del sitio.
+dos (2) archivos se tiene todo el lote de informaciï¿½n de EJEMPLO que se cargï¿½ para probar la funcionalidad del sitio.
 
 No se han encontrado problemas durante el desarrollo, solamente algunos visuales en IE 6.0 (porque en el 7 no), 
 calculamos que es problema de ese browser, ademas de no ser lector de RSS.
 
-Un administrador puede hacer TODO, pero no leer mensajes privados (mensajería interna) de otros usuarios, ya que 
-sería intrusión de privacidad.
+Un administrador puede hacer TODO, pero no leer mensajes privados (mensajerï¿½a interna) de otros usuarios, ya que 
+serï¿½a intrusiï¿½n de privacidad.
 
 Tampoco se pueden modificar Novedades, Articulos, Notas, Links y eventos, ya que pensamos que hace a la incosnsistencia
-de información para sus lectores. Solo se eliminan.
+de informaciï¿½n para sus lectores. Solo se eliminan.
 
 A un articulo se le pueden agregar imagenes/archivos, pero estos ultimos (archivos) no se pueden eliminar por la misma
-razón que la anterior, pero cuando se elimina el articulo se borran todas sus relaciones. No así con las imagenes, 
-porque éstas pueden ser de contenido no autorizado, por lo tanto se peuden eliminar.
+razï¿½n que la anterior, pero cuando se elimina el articulo se borran todas sus relaciones. No asï¿½ con las imagenes, 
+porque ï¿½stas pueden ser de contenido no autorizado, por lo tanto se peuden eliminar.
 
-Lo demas figura en el manual de usuario y surge a simple vista en los menúes de usuario/adminsitrador.
+Lo demas figura en el manual de usuario y surge a simple vista en los menï¿½es de usuario/adminsitrador.
 
 
 NOTA: PARA QUE FUNCIONEN (QUE NO MUESTREN WARNINGS) reset_password.php y estatificar_usuario.php EL SERVIDOR DEBE TENER SI O SI ACTIVADO

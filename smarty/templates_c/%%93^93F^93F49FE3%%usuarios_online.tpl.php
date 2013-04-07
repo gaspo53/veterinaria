@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.19, created on 2013-04-07 15:26:20
+<?php /* Smarty version 2.6.19, created on 2013-04-07 15:40:06
          compiled from usuarios_online.tpl */ ?>
 <!-- muestra un link al perfil de los usuarios online -->
 <?php if ($this->_tpl_vars['usuarios_online']): ?>

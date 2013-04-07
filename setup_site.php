@@ -83,13 +83,13 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$site_conf_array_strings[38]= 'define ("DELETE_EVENT_ERROR"," Se produjo un error al eliminar el evento")'.";\n";
 		
-		$site_conf_array_strings[39]= 'define ("EVENT_OWN","UD NO ES EL DUE�O DE ESTE EVENTO")'.";\n";
+		$site_conf_array_strings[39]= 'define ("EVENT_OWN","UD NO ES EL DUE&Ntilde;O DE ESTE EVENTO")'.";\n";
 		
 		$site_conf_array_strings[40]= 'define ("DELETE_LINK_SUCCESS"," Se elimin&oacute; correctamente el link de inter&eacute;s")'.";\n";
 		
 		$site_conf_array_strings[41]= 'define ("DELETE_LINK_ERROR"," Se produjo un error al eliminar el link de inter&eacute;s")'.";\n";
 		
-		$site_conf_array_strings[42]= 'define ("LINK_OWN","UD NO ES EL DUE�O DE ESTE LINK DE INTERES")'.";\n";
+		$site_conf_array_strings[42]= 'define ("LINK_OWN","UD NO ES EL DUE&Ntilde;O DE ESTE LINK DE INTERES")'.";\n";
 		
 		$site_conf_array_strings[43]= 'define ("DELETE_IMAGE_SUCCESS"," Se elimin&oacute; correctamente la im&aacute;gen")'.";\n";
 		
@@ -99,9 +99,9 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$site_conf_array_strings[46]= 'define ("EVENT_NOT_EXISTS"," El evento no existe")'.";\n";
 		
-		$site_conf_array_strings[47]= 'define ("ARTICLE_OWN","UD NO ES EL DUE�O DE ESTE ARTICULO")'.";\n";
+		$site_conf_array_strings[47]= 'define ("ARTICLE_OWN","UD NO ES EL DUE&Ntilde;O DE ESTE ARTICULO")'.";\n";
 		
-		$site_conf_array_strings[48]= 'define ("MESSAGE_OWN","UD NO ES EL DUE�O DE ESTE MENSAJE")'.";\n";
+		$site_conf_array_strings[48]= 'define ("MESSAGE_OWN","UD NO ES EL DUE&Ntilde;O DE ESTE MENSAJE")'.";\n";
 		
 		$site_conf_array_strings[49]= 'define ("MESSAGE_NOT_EXISTS","EL MENSAJE SOLICITADO NO EXISTE")'.";\n";
 		
@@ -109,7 +109,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$site_conf_array_strings[51]= 'define ("DELETE_MESSAGE_ERROR"," Se produjo un error al eliminar el mensaje")'.";\n";
 		
-		$site_conf_array_strings[52]= 'define ("NEW_OWN","UD NO ES EL DUE�O DE ESTA NOTICIA")'.";\n";
+		$site_conf_array_strings[52]= 'define ("NEW_OWN","UD NO ES EL DUE&Ntilde;O DE ESTA NOTICIA")'.";\n";
 		
 		$site_conf_array_strings[53]= 'define ("NEW_NOT_EXISTS","LA NOTICIA SOLICITADA NO EXISTE")'.";\n";
 		
@@ -125,7 +125,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$site_conf_array_strings[59]= 'define ("DELETE_NOTE_ERROR"," Se produjo un error al eliminar la nota")'.";\n";
 		
-		$site_conf_array_strings[60]= 'define ("NOTE_OWN","UD NO ES EL DUE�O DE ESTA NOTA")'.";\n";
+		$site_conf_array_strings[60]= 'define ("NOTE_OWN","UD NO ES EL DUE&Ntilde;O DE ESTA NOTA")'.";\n";
 		
 		$site_conf_array_strings[61]= 'define ("UPDATE_USER_SUCCESS"," Se actualiz&oacute; correctamente el estado de")'.";\n";
 		
