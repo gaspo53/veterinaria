@@ -1,0 +1,423 @@
+/************ general ******************/
+
+body{
+	font-family: Arial,sans-serif;
+	color: #000000;
+	line-height: 1.166;	
+	background-color:#003333;
+	margin: 0px;
+	padding: 0px;
+}
+
+img{
+	border:none;
+}
+
+a:link, a:visited, a:hover {
+	color: #FFCC00;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Arial,sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1{
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 120%;
+	color: #FF9933;
+}
+
+h2{
+	font-size: 140%;
+	color: #006699;
+}
+
+h3{
+	font-size: 100%;
+	color: #FFCC00;
+}
+
+h4{
+	font-size: 100%;
+	font-weight: normal;
+	color: #333333;
+}
+
+h5{
+	font-size: 100%;
+	color: #334d55;
+}
+
+ul{
+	list-style-type: square;
+}
+
+ul ul{
+	list-style-type: disc;
+}
+
+ul ul ul{
+	list-style-type: none;
+}
+
+label{
+	font: bold 100% Arial,sans-serif;
+}
+				
+
+/***********************************************/
+/*             Formato del sitio               */
+/***********************************************/
+
+#cabecera{
+	margin: 0;
+	padding: 10px 0px;
+	width: 100%;
+	background: url(../images/logo_default.jpg) no-repeat top left;
+}
+
+#barra_lateral{
+	float:left;
+	width: 170px;
+	padding: 0px;
+	clear:both;
+	min-height: 1027px;	
+}
+
+#contenido{
+	min-height: 1037px;
+	min-width: 150px;
+	padding: 10px 10px 5px 30px;
+	margin:0px 0px 0px 170px;
+	border-left: 1px solid #ccc;
+	background-color:#003333;
+	position:relative;
+
+}
+
+#contenedor_medio{
+	border-right:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-top:1px solid #ccc;
+	background-color: #336699;
+}
+
+#contenedor_general{
+	width:95%;
+	left: 2.5%;
+	right: 2.5%;
+	position:absolute;
+	top: 0px;
+	min-width: 323px;
+}
+
+/***********************************************/
+/*            Formato interno                  */
+/***********************************************/
+
+#nombre_sitio{
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+	height:62px;
+}
+
+
+/*************** #titulo_pagina styles **************/
+
+#titulo_pagina{
+	padding: 0px 0px 10px 10px;
+}
+
+
+/************* #barra_admin **************/
+
+#barra_admin{
+	color: #FF6600;
+	padding: 0px 0px 0px 10px;
+	white-space: nowrap;
+	text-align:right;
+}
+
+#barra_admin a {
+	font-size: 90%;
+	padding: 0px 4px 0px 0px;
+}
+
+/************** .contenido_interior ***************/
+
+.mayus_advert{
+	text-align:center;
+	color:#FFFF00;
+	font-weight:bold;
+}
+
+.contenido_interior{
+	width: 100%;
+	font-size: 80%;
+}
+.contenido_interior p{
+	color: #00CCFF;
+	font-size: 125%;
+}
+
+.contenido_interior h3{
+	padding: 30px 0px 5px 0px;
+	text-align: center; 
+	color:#10ccff;
+	font-size:140%;
+}
+
+#paginador{
+	text-align:center;
+	width:100%;
+	margin-top:10px;
+	bottom:0;
+	right:0;
+}
+
+
+/************* #pie_pagina ***************/
+
+#pie_pagina{
+	clear: both;
+	border: 1px solid #CCCCCC;
+	font-size: 75%;
+	color: #CCCCCC;
+	margin-top: 0px;
+}
+
+#pie_pagina p{
+	text-align:center;
+}
+
+
+/************* #buscador ***************/
+
+#busqueda_avanzada{
+	font-size:80%;
+	text-align:right;	
+	padding-right: 5px;
+}
+
+#busqueda_avanzada a {
+	color:#FF9900;
+	font-size:90%;
+}
+
+#form_busqueda{
+	padding: 5px 0px 5px 10px;
+	border-bottom: 1px #cccccc solid;
+}
+
+/************* formularios ***************/
+
+#registracion{
+	font-size:90%;
+	text-align: right;
+	padding-right: 5px;
+}
+
+
+#registracion a{
+	color:#FF9900;
+}
+
+.formulario, #formulario_administracion{
+	width:66%;
+	position:relative;
+	text-align:right;
+	margin-left: 5%;
+}
+
+.formulario div{
+	text-align:center;
+	margin-left: 35%;
+}
+
+.formulario h4{
+	text-align:left;
+	color:#00CCFF;
+	font-size:120%;
+}
+
+.formulario img{
+	border: none;
+}
+
+#formulario_administracion{
+	text-align:left;
+}
+	
+.form form{
+	text-align:center;
+	position:relative;
+}
+
+/************* #panel_login ***************/
+
+#panel_login{
+	padding: 5px 0px 5px 10px;
+	border-bottom: 1px solid #cccccc;
+	font-size: 75%;
+}
+
+#panel_login form{
+ margin: 0px;
+ padding: 0px;
+}
+
+#panel_login label{
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+/*********** #barra_lateral listas ***********/
+
+#barra_lateral ul a:link, #barra_lateral ul a:visited {display: block;}
+#barra_lateral ul {list-style: none; margin: 0; padding: 0;}
+
+/* hack para arreglar problema de ancho en listas de IE */
+#barra_lateral li {border-bottom: 1px solid #EEE;}
+
+/* arreglo para los que no necesitan el hack */
+html>body #barra_lateral li {border-bottom: none;}
+
+
+/*********** #links_laterales ***********/
+
+#links_laterales{
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+	border-bottom: 1px solid #CCCCCC;
+	font-size: 90%;
+	position:relative;
+}
+
+#links_laterales a{
+	border-top: 1px solid #CCCCCC;
+}
+
+#links_laterales h3{
+	padding: 10px 0px 2px 10px;
+}
+
+#links_laterales a:link{
+	padding: 2px 0px 2px 10px;
+	border-top: 1px solid #CCCCCC;
+	width: 100%;
+  	voice-family: "\"}\""; 
+ 	voice-family:inherit;
+	width: auto;/*color:#FFCC00;*/
+}
+
+#links_laterales a:visited{
+	border-top: 1px solid #CCCCCC;
+	padding: 2px 0px 2px 10px;
+}
+
+#links_laterales a:hover{
+	border-top: 1px solid #CCCCCC;
+	background-color: /*#003333;*/ #3366BB;
+	padding: 2px 0px 2px 10px;
+}
+
+
+/*********** #links_interes ***********/
+
+#links_interes{
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+	font-size: 90%;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#links_interes a{
+	padding: 0px 0px 0px 10px;
+	
+}
+
+#links_interes h3{
+	padding: 10px 0px 2px 0px;
+}
+
+
+/************** #novedades **************/
+
+#novedades{
+	margin: 0px;
+	padding: 10px 0px 20px 10px;
+	font-size: 90%;
+}
+
+#links_novedades p{
+	padding: 5px 0px 0px 10px;
+}
+
+#novedades a{
+	color:#FFCC00;
+}
+
+#novedades h3{
+	font-size: 110%;
+}
+
+#todas_novedades, #todos_links{
+	text-align:center;
+}
+
+#todos_links a{
+	padding-right: 25px;
+}
+
+#todas_novedades a{
+	padding-right:10px;
+} 
+
+.descripcion_novedad {
+	display:none;
+	padding-right: 5px;
+}
+
+/************** #panel_logout **************/
+
+#panel_logout {
+	text-align:right;
+}
+
+#panel_logout a{
+	color: #FF9900;	
+	font-size:80%;
+	font-weight: bold;
+}
+
+.error {
+	color:#FF3333;
+}
+
+/***************** #usuarios_online ***********/
+
+#usuarios_online{
+	margin: 0px;
+	padding: 10px 0px 20px 10px;
+	font-size: 90%;
+	text-align:center;
+}
+#usuarios_online{
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+	font-size: 90%;
+	border-top: 1px solid #CCCCCC;
+}
+
+#usuarios_online h3{
+	padding: 10px 0px 2px 0px;
+}

@@ -1,0 +1,34 @@
+Usuarios en la BD:
+			
+			admin 	|| adminvete (Admin)
+			pato  	|| 123456 (Admin)
+			gaspo53 || 123456 (Participante)
+			fmelo 	|| 123456 (Participante) (Suspendido)
+			jberho || 123456 (Participante) (Desactivado)
+
+EN el directorio raíz, hay un archivo llamado "Datos.zip", que tiene un archivo de texto con cnsultas SQL par aimportar desde MySQL Server, 
+y una carpeta llamada "files", la cual se debe reemplazar por la actual INMEDIATAMENTE DESPUES DE INSTALAR EL SITIO!!!!!!! Ya que con estos
+dos (2) archivos se tiene todo el lote de información de EJEMPLO que se cargó para probar la funcionalidad del sitio.
+
+No se han encontrado problemas durante el desarrollo, solamente algunos visuales en IE 6.0 (porque en el 7 no), 
+calculamos que es problema de ese browser, ademas de no ser lector de RSS.
+
+Un administrador puede hacer TODO, pero no leer mensajes privados (mensajería interna) de otros usuarios, ya que 
+sería intrusión de privacidad.
+
+Tampoco se pueden modificar Novedades, Articulos, Notas, Links y eventos, ya que pensamos que hace a la incosnsistencia
+de información para sus lectores. Solo se eliminan.
+
+A un articulo se le pueden agregar imagenes/archivos, pero estos ultimos (archivos) no se pueden eliminar por la misma
+razón que la anterior, pero cuando se elimina el articulo se borran todas sus relaciones. No así con las imagenes, 
+porque éstas pueden ser de contenido no autorizado, por lo tanto se peuden eliminar.
+
+Lo demas figura en el manual de usuario y surge a simple vista en los menúes de usuario/adminsitrador.
+
+
+NOTA: PARA QUE FUNCIONEN (QUE NO MUESTREN WARNINGS) reset_password.php y estatificar_usuario.php EL SERVIDOR DEBE TENER SI O SI ACTIVADO
+      SMTP Y SSL (LO INCLUIMOS PORQUE EL SERVIDOR DE LA FACULTAD LO TIENE HABILITADO), PERO SI LO INSTALAN EN OTRO SERVIDOR, Y NO TIENE
+      ACTIVADAS ESTAS FUNCIONES, TENER EN CUENTA QUE ESE WARNING NO ES UN ERROR NUESTRO, SINO QUE SE DEBE A LO EXPLICADO
+
+NOTA 2: PARA PODER INSTALAR EL SITIO, BORRAR ARCHIVO site.conf.php (TENER EN CUENTA QUE SE TRUNCAN TODAS LAS TABLAS!!!!!!!!!!!!!)
+

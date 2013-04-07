@@ -1,0 +1,436 @@
+/************ general ******************/
+
+body{
+	font-family: Arial, sans-serif;
+	color: #333333;
+	line-height: 1.166;
+	background-color: #FFFFFF;
+	margin: 0px;
+	padding: 0px;
+}
+
+img{
+	border:none;
+}
+
+a:link, a:visited, a:hover {
+	color: #006699;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Arial,sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1{
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 120%;
+	color: #334d55;
+}
+
+h2{
+	font-size: 140%;
+	color: #006699;
+}
+
+h3{
+	font-size: 100%;
+	color: #334d55;
+}
+
+h4{
+	font-size: 100%;
+	font-weight: normal;
+	color: #333333;
+}
+
+h5{
+	font-size: 100%;
+	color: #334d55;
+}
+
+ul{
+	list-style-type: square;
+}
+
+ul ul{
+	list-style-type: disc;
+}
+
+ul ul ul{
+	list-style-type: none;
+}
+
+label{
+	font: bold 100% Arial,sans-serif;
+	color: #334d55;
+}
+
+/***********************************************/
+/*             Formato del sitio               */
+/***********************************************/
+
+#cabecera{
+	margin: 0;
+	padding: 10px 0px;
+	width: 100%;
+	background: url(../images/logo_blanco.jpg) no-repeat top left;
+}
+
+#barra_lateral{
+/*	position:relative;
+	//margin: 0 79% 0 0;
+	margin-right: 30px;
+	float:left;
+	padding: 0px;
+	background-color: #eeeeee;
+	border-right: 1px solid #ccc;*/
+
+	float:left;
+	width: 170px;
+	padding: 0px;
+/*	background-color: #eeeeee;*/
+	clear:both;
+/*	border:1px solid #ccc;*/
+/*	border-bottom: 0px;		*/
+	min-height: 1007px;
+}
+
+#contenido{
+/*	//float:right;
+	width: 75%;
+	margin: 0;
+	padding: 0 3% 0 0;
+	margin-top: 15px;
+	position: relative;*/
+
+	min-height: 1017px;
+	min-width: 150px;
+	padding: 10px 10px 5px 30px;
+	margin:0px 0px 0px 170px;
+/*	border-right: 1px solid #ccc;
+	border-top: 1px solid #ccc;*/
+	border-left: 1px solid #ccc;
+	background-color: #FFFFFF;
+	
+	position:relative;
+
+}
+
+#contenedor_medio{
+	border-right:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-top:1px solid #ccc;
+	background-color: #eeeeee;
+}
+
+#contenedor_general{
+/*	width:770px;
+	margin-left:auto; 
+	margin-right:auto;
+	clear:both;*/
+
+	width:95%;
+	left: 2.5%;
+	right: 2.5%;
+	position:absolute;
+	top: 0px;
+	min-width:323px;
+}
+
+#paginador{
+/*	position: absolute;*/
+	margin-top:10px;
+	text-align:center;
+	bottom:0;
+	right:0;
+	width:100%;
+}
+
+/***********************************************/
+/*            Formato interno                  */
+/***********************************************/
+
+#nombre_sitio{
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+	height: 62px;
+}
+
+
+/*************** #titulo_pagina styles **************/
+
+#titulo_pagina{
+	padding: 0px 0px 10px 10px;
+}
+
+
+/************* #barra_admin **************/
+
+#barra_admin{
+	color: #CCCCCC;
+	padding: 0px 0px 0px 10px;
+	white-space: nowrap;
+	text-align:right;
+}
+
+#barra_admin a {
+	font-size: 90%;
+	padding: 0px 4px 0px 0px; 
+}
+
+/************** .contenido_interior ***************/
+
+.mayus_advert{
+	text-align:center;
+	color:#CC6666;
+	font-weight:bold;
+}
+
+.contenido_interior{
+	/*padding: 0px 0px 10px 10px;*/
+	font-size: 80%;
+	width: 100%;
+	/*height: 90%;*/
+}
+
+.contenido_interior h3{
+	padding: 30px 0px 5px 0px;
+	text-align: center;
+	font-size:140%;
+}
+
+.contenido_interior img{
+	/*float: left;
+	padding: 0px 10px 0px 0px;
+	margin: 0 5px 5px 0;*/
+}
+
+.contenido_interior p{
+	font-size: 125%;
+}
+/************* #pie_pagina ***************/
+
+#pie_pagina{
+	clear: both;
+	border: 1px solid #CCCCCC;
+	font-size: 75%;
+	color: #CCCCCC;
+	margin-top: 0px;
+}
+
+#pie_pagina p{	
+	text-align:center;
+}
+
+
+
+/************* #buscador ***************/
+
+#busqueda_avanzada{
+	font-size:80%;
+	text-align:right;	
+	padding-right: 5px;
+}
+
+#busqueda_avanzada a {
+	font-size:90%;
+}
+
+#form_busqueda {
+	padding: 5px 0px 5px 10px;
+	border-bottom: 1px solid #cccccc;
+}
+
+/************* formularios ***************/
+
+#registracion{
+	font-size:90%;
+	text-align: right;
+	padding-right: 5px;
+}
+
+.formulario{
+	width:66%;
+	position:relative;
+	text-align:right;
+	margin-left: 5%;
+}
+
+.formulario div{
+	text-align:center;
+	margin-left: 35%;
+}
+
+.formulario h4{
+	text-align:left;
+	color:#333333;
+	font-size:120%;
+}
+
+.formulario img{
+	border: none;
+}
+	
+.form form{
+	text-align:center;
+	position:relative;
+}
+
+/************* #panel_login ***************/
+
+#panel_login{
+	padding: 5px 0px 5px 10px;
+	border-bottom: 1px solid #cccccc;
+	font-size: 75%;
+}
+
+#panel_login form{
+ margin: 0px;
+ padding: 0px;
+}
+
+#panel_login label{
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*********** #barra_lateral listas ***********/
+
+#barra_lateral ul a:link, #barra_lateral ul a:visited {display: block;}
+#barra_lateral ul {list-style: none; margin: 0; padding: 0;}
+
+/* hack para arreglar problema de ancho en listas de IE */
+#barra_lateral li {border-bottom: 1px solid #EEE;}
+
+/* arreglo para los que no necesitan el hack */
+html>body #barra_lateral li {border-bottom: none;}
+
+
+/*********** #links_laterales ***********/
+
+#links_laterales{
+	position:relative;
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+	border-bottom: 1px solid #CCCCCC;
+	font-size: 90%;
+}
+
+#links_laterales h3{
+	padding: 10px 0px 2px 10px;
+}
+
+#links_laterales a:link{
+	padding: 2px 0px 2px 10px;
+	border-top: 1px solid #CCCCCC;
+	width: 100%;
+	voice-family: "\"}\""; 
+  	voice-family:inherit;
+	width: auto;
+}
+
+#links_laterales a:visited{
+	border-top: 1px solid #CCCCCC;
+	padding: 2px 0px 2px 10px;
+}
+
+#links_laterales a:hover{
+	border-top: 1px solid #CCCCCC;
+	background-color: #DDDDDD;
+	padding: 2px 0px 2px 10px;
+}
+
+
+/*********** #links_interes ***********/
+
+#links_interes{
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+	font-size: 90%;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#links_interes a{
+	padding: 0px 0px 0px 10px;
+}
+
+#links_interes h3{
+	padding: 10px 0px 2px 0px;
+}
+
+
+/************** #novedades **************/
+
+#novedades{
+	margin: 0px;
+	padding: 10px 0px 20px 10px;
+	font-size: 90%;
+}
+
+#links_novedades p{
+	padding: 5px 0px 0px 10px;
+}
+
+#todas_novedades, #todos_links{
+	text-align:center;
+/*	position: relative;
+	width:100%;
+	padding-right: 50px;*/
+}
+
+#todos_links a{
+	padding-right: 25px;
+}
+
+#todas_novedades a{
+	padding-right:10px;
+} 
+
+.descripcion_novedad {
+	display:none;
+	padding-right: 5px;
+}
+
+/************** #panel_logout **************/
+#panel_logout {
+	text-align:right;
+/****	display:none;*/
+}
+
+#panel_logout a{
+	color: #006699;	
+	font-size:80%;
+	font-weight: bold;
+}
+
+.error {
+	color:#FF6666;
+}
+
+
+/***************** #usuarios_online ***********/
+
+#usuarios_online{
+	margin: 0px;
+	padding: 10px 0px 20px 10px;
+	font-size: 90%;
+	text-align:center;
+}
+#usuarios_online{
+	margin: 0px;
+	padding: 0px 0px 10px 10px;
+	font-size: 90%;
+	border-top: 1px solid #CCCCCC;
+}
+
+#usuarios_online h3{
+	padding: 10px 0px 2px 0px;
+}
