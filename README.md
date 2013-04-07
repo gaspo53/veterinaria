@@ -36,31 +36,32 @@ After that, it is recommended that you edit your /etc/hosts file and put this li
 Now, you have to set-up a VirtualHost. As an example, you have to make one like this:
 <pre>
   <code>
-     <VirtualHost *:80>
+     &lt;VirtualHost *:80&gt;
 
-        ServerAdmin webmaster@localhost
+      	ServerAdmin webmaster@localhost
 	ServerName  veterinaria.local
 	DocumentRoot /path/to/project/veterinaria
-	<Directory />
+	&lt;Directory /&gt;
 		Options FollowSymLinks
 		AllowOverride None
-	</Directory>
-	<Directory /path/to/project/veterinaria/>
+	&lt;/Directory&gt;
+	&lt;Directory /path/to/project/veterinaria/&gt;
 		Options Indexes FollowSymLinks MultiViews
 		AllowOverride None
 		Order allow,deny
 		allow from all
-	</Directory>
+	&lt;/Directory&gt;
 
 	ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
-	<Directory "/usr/lib/cgi-bin">
+	&lt;Directory &quot;/usr/lib/cgi-bin&quot;&gt;
 		AllowOverride None
 		Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
 		Order allow,deny
 		Allow from all
-	</Directory>
-     </VirtualHost>
-    </code>
+	&lt;/Directory&gt;
+     &lt;/VirtualHost&gt;
+
+  </code>
 </pre>
 
 And of course, enable it with:
