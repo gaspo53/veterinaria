@@ -1,6 +1,6 @@
 <?php
   //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA LA NOTA RECOMENDADA
-  include_once("DB.php");
+  
   include_once("inicializar.php");
   include_once('./login_logout.php');
   
@@ -16,11 +16,11 @@
   		$username = getSessionUsername();
 
   		//INSERTA LOS DATOS A LA TABLA notas_recomendadas
-  		$consulta ="INSERT INTO notas_recomendadas (id ,titulo ,link ,nota ,idUsuario ,usuario ,fecha)
+  		$consulta ="INSERT INTO notas_recomendadas (id ,titulo ,link ,nota ,idusuario ,usuario ,fecha)
   		VALUES (NULL , '$postParameters[0]', '$postParameters[1]', '$postParameters[2]', '$postParameters[3]', '$username', '$fecha')";
   		$resul=$con->query($consulta);
   		
-  		if (DB::isError($resul)){
+  		if (MDB2::isError($resul)){
   				$smarty->assign('error','LA NOTA NO SE PUDO CARGAR');
   		} else {
   				$smarty->assign('link_temp','./listar_notas.php');

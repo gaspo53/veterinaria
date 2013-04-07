@@ -1,6 +1,6 @@
 <?php
 // ESTE PHP GUARDA EL REGISTRO DE UN NUEVO USUARIO
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -13,8 +13,8 @@ if (validarStrings($postParameters)){ // SI NO VINO NADA EN BLANCO
 	$consulta ="INSERT INTO usuarios (id ,nombre ,apellido ,password ,username ,email ,direccion ,telefono ,profesion ,tipo ,css)
 	VALUES (NULL , '$postParameters[0]', '$postParameters[1]', '$postParameters[2]', '$postParameters[3]', '$postParameters[4]', '$postParameters[5]', '$postParameters[6]', '$postParameters[7]', 2 , '$postParameters[8]')";
 	$resul=$con->query($consulta);
-	if (DB::isError($resul)){
-		if ((DB::isError($resul)) == -5){
+	if (MDB2::isError($resul)){
+		if ((MDB2::isError($resul)) == -5){
 			$smarty->assign('error','EL USUARIO YA EXISTE');
 		}
 	} else {

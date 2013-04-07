@@ -1,6 +1,7 @@
-<?php /* Smarty version 2.6.19, created on 2008-02-27 12:38:21
+<?php /* Smarty version 2.6.19, created on 2013-04-07 15:26:20
          compiled from barra_menu.tpl */ ?>
 <?php if ($this->_tpl_vars['menu_items']): ?>
+	<!-- ESTE TEMPLATE MUESTRA LA BARRA DE MENU DE USUARIO -->
 <div id="barra_admin"> 
 	  <form name="menu_items" action="./ir_a.php" method="post">
 		<select name="url" size="1" onchange="javascript:goTo(this.value)">

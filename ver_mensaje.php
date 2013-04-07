@@ -1,6 +1,6 @@
 <?php
 //ESTE PHP MUESTRA EL MENSAJE ELEGIDO
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -11,7 +11,7 @@ if (hay_alguien()){
 	$user = getSessionUsername();
 	$consulta ="SELECT * FROM mensajes WHERE (id = '$id_mensaje')";
 	$resul=$con->query($consulta);
-	if ($lineax = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	if ($lineax = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$linea->id = $lineax->id;
 		$linea->asunto = pasarATexto($lineax->asunto);
 		$linea->remitente = pasarATexto($lineax->remitente);

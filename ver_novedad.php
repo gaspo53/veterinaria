@@ -1,6 +1,6 @@
 <?php
 //ESTE PHP MUESTRA LA NOVEDAD ELEGIDA, PERO CON LINKS DE AMIN PARA ELIMINARLA
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -11,10 +11,10 @@ if (hay_alguien()){
 	$user = getSessionId();
 	$consulta ="SELECT * FROM novedades WHERE (id = '$id_novedad')";
 	$resul=$con->query($consulta);
-	if ($lineax = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	if ($lineax = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$linea= $lineax;
 		$con-> disconnect();
-		if (($lineax->idUsuario == $user) || (es_admin(getSessionId()))){
+		if (($lineax->idusuario == $user) || (es_admin(getSessionId()))){
 			$linea->fecha = convertirFecha($linea->fecha);
 			$linea->nombre_corto = pasarATexto($linea->nombre_corto);
 			$linea->nombre_largo = pasarATexto($linea->nombre_largo);

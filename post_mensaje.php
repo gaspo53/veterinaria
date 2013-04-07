@@ -1,6 +1,6 @@
 <?php
   //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA EL MENSAJE
-  include_once("DB.php");
+  
   include_once("inicializar.php");
   include_once('./login_logout.php');
 
@@ -18,7 +18,7 @@
   		VALUES (NULL , '$postParameters[0]', '$postParameters[1]', '$postParameters[2]', '$postParameters[3]', 0)";
   		$resul=$con->query($consulta);
   		
-  		if (DB::isError($resul)){
+  		if (MDB2::isError($resul)){
   				$smarty->assign('error','EL MENSAJE NO SE PUDO ENVIAR');
   		} else {
   				$smarty->assign('error',$postParameters[0]." SE ENVIO CORRECTAMENTE");

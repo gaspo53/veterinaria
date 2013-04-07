@@ -1,6 +1,6 @@
 <?php
   //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA LA NOVEDAD
-  include_once("DB.php");
+  
   include_once("inicializar.php");
   include_once('./login_logout.php');
   
@@ -16,11 +16,11 @@
   		$username = getSessionUsername();
   
   		//INSERTA LOS DATOS A LA TABLA novedades
-  		$consulta ="INSERT INTO novedades (id ,nombre_corto ,nombre_largo ,desc_corta ,desc_larga, idUsuario, fecha, usuario)
+  		$consulta ="INSERT INTO novedades (id ,nombre_corto ,nombre_largo ,desc_corta ,desc_larga, idusuario, fecha, usuario)
   		VALUES (NULL , '$postParameters[0]', '$postParameters[1]', '$postParameters[2]', '$postParameters[3]','$postParameters[4]','$fecha','$username')";
   		$resul=$con->query($consulta);
   
-  		if (DB::isError($resul)){
+  		if (MDB2::isError($resul)){
   				$smarty->assign('error','LA NOVEDAD NO SE PUDO CARGAR');
   		} else {
   				$smarty->assign('link_temp','./listar_novedades.php');

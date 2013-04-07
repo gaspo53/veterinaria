@@ -1,11 +1,12 @@
-<?php /* Smarty version 2.6.19, created on 2008-02-27 12:38:21
+<?php /* Smarty version 2.6.19, created on 2013-04-07 15:26:20
          compiled from usuarios_online.tpl */ ?>
+<!-- muestra un link al perfil de los usuarios online -->
 <?php if ($this->_tpl_vars['usuarios_online']): ?>
 	<?php $_from = $this->_tpl_vars['usuarios_online']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['actual']):
 ?>
 		<p>
-		<a href="./mostrar_perfil.php?id=<?php echo $this->_tpl_vars['actual']->idUsuario; ?>
+		<a href="./mostrar_perfil.php?id=<?php echo $this->_tpl_vars['actual']->idusuario; ?>
 "><?php echo $this->_tpl_vars['actual']->username; ?>
 </a>
 		</p>

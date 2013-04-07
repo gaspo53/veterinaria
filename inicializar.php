@@ -6,7 +6,7 @@ if ( !(file_exists('./site.conf.php')) ){
 else
   {
 	session_start();
-	include_once("DB.php");
+	include_once("lib/MDB2.php");
 	include_once("./funciones.php");
 	require_once("./site.conf.php");
 	require_once(SMARTY_PATH."/libs/Smarty.class.php");

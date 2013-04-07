@@ -1,5 +1,5 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -12,8 +12,8 @@ if (tiene_permisos()){
 		$consulta ="DELETE FROM usuarios WHERE id = '$user'";
 		$resul=$con->query($consulta);
 		$username = $_GET['username'];
-		if (DB::isError($resul)){
-			if ((DB::isError($resul))){
+		if (MDB2::isError($resul)){
+			if ((MDB2::isError($resul))){
 				$smarty->assign('error','EL USUARIO NO SE PUDO ELIMINAR');
 			}
 		} else {

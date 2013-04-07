@@ -1,12 +1,14 @@
 <?php
-include_once("DB.php");
+
 
 if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // SI NO EXISTE SITE.CONF O EL USUARIO DE LA DB
     header('Location: ./index.php');
 } else {
-		
 		/// CREO EL ARCHIVO site.conf.php
 		$site_conf = fopen("./site.conf.php", "w");
+		if (!$site_conf)
+			die ("No hay permisos para escribir el archivo");
+		
 		fwrite($site_conf,"<?php\n");
 		// DEFINO LAS CONSTANTES QUE CAMBIAN DEPENDIENDO DEL SERVIDOR DONDE SE INSTALE
 		$site_conf_array_strings = array();
@@ -81,13 +83,13 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$site_conf_array_strings[38]= 'define ("DELETE_EVENT_ERROR"," Se produjo un error al eliminar el evento")'.";\n";
 		
-		$site_conf_array_strings[39]= 'define ("EVENT_OWN","UD NO ES EL DUEÑO DE ESTE EVENTO")'.";\n";
+		$site_conf_array_strings[39]= 'define ("EVENT_OWN","UD NO ES EL DUEï¿½O DE ESTE EVENTO")'.";\n";
 		
 		$site_conf_array_strings[40]= 'define ("DELETE_LINK_SUCCESS"," Se elimin&oacute; correctamente el link de inter&eacute;s")'.";\n";
 		
 		$site_conf_array_strings[41]= 'define ("DELETE_LINK_ERROR"," Se produjo un error al eliminar el link de inter&eacute;s")'.";\n";
 		
-		$site_conf_array_strings[42]= 'define ("LINK_OWN","UD NO ES EL DUEÑO DE ESTE LINK DE INTERES")'.";\n";
+		$site_conf_array_strings[42]= 'define ("LINK_OWN","UD NO ES EL DUEï¿½O DE ESTE LINK DE INTERES")'.";\n";
 		
 		$site_conf_array_strings[43]= 'define ("DELETE_IMAGE_SUCCESS"," Se elimin&oacute; correctamente la im&aacute;gen")'.";\n";
 		
@@ -97,9 +99,9 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$site_conf_array_strings[46]= 'define ("EVENT_NOT_EXISTS"," El evento no existe")'.";\n";
 		
-		$site_conf_array_strings[47]= 'define ("ARTICLE_OWN","UD NO ES EL DUEÑO DE ESTE ARTICULO")'.";\n";
+		$site_conf_array_strings[47]= 'define ("ARTICLE_OWN","UD NO ES EL DUEï¿½O DE ESTE ARTICULO")'.";\n";
 		
-		$site_conf_array_strings[48]= 'define ("MESSAGE_OWN","UD NO ES EL DUEÑO DE ESTE MENSAJE")'.";\n";
+		$site_conf_array_strings[48]= 'define ("MESSAGE_OWN","UD NO ES EL DUEï¿½O DE ESTE MENSAJE")'.";\n";
 		
 		$site_conf_array_strings[49]= 'define ("MESSAGE_NOT_EXISTS","EL MENSAJE SOLICITADO NO EXISTE")'.";\n";
 		
@@ -107,7 +109,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$site_conf_array_strings[51]= 'define ("DELETE_MESSAGE_ERROR"," Se produjo un error al eliminar el mensaje")'.";\n";
 		
-		$site_conf_array_strings[52]= 'define ("NEW_OWN","UD NO ES EL DUEÑO DE ESTA NOTICIA")'.";\n";
+		$site_conf_array_strings[52]= 'define ("NEW_OWN","UD NO ES EL DUEï¿½O DE ESTA NOTICIA")'.";\n";
 		
 		$site_conf_array_strings[53]= 'define ("NEW_NOT_EXISTS","LA NOTICIA SOLICITADA NO EXISTE")'.";\n";
 		
@@ -123,7 +125,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$site_conf_array_strings[59]= 'define ("DELETE_NOTE_ERROR"," Se produjo un error al eliminar la nota")'.";\n";
 		
-		$site_conf_array_strings[60]= 'define ("NOTE_OWN","UD NO ES EL DUEÑO DE ESTA NOTA")'.";\n";
+		$site_conf_array_strings[60]= 'define ("NOTE_OWN","UD NO ES EL DUEï¿½O DE ESTA NOTA")'.";\n";
 		
 		$site_conf_array_strings[61]= 'define ("UPDATE_USER_SUCCESS"," Se actualiz&oacute; correctamente el estado de")'.";\n";
 		
@@ -135,18 +137,22 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 			fwrite($site_conf,$linea);
 		fwrite($site_conf,"?>");
 		fclose($site_conf);
+		
 		include_once("./site.conf.php");
+		include_once("lib/MDB2.php");
+		
 		//// CREO LA BD SI ES QUE HAY QUE HACERLO
 		if (isset($_POST['DB_CREATE']))
 			if ($_POST['DB_CREATE'] == "on"){
-				$conexion = DB::connect(DB_TYPE."://".DB_USERNAME.":".DB_PASSWORD."@".DB_HOST.":".DB_LISTEN_PORT."/");
-				if (DB::isError($conexion)){ // ME FIJO SI HAY ERROR EN LA CONEXION, ES LA MISMA SENTENCIA QUE LA QUE HAY ARRIBA AL CREAR LA BASE DE DATOS
+				$conexion = MDB2::connect(DB_TYPE."://".DB_USERNAME.":".DB_PASSWORD."@".DB_HOST.":".DB_LISTEN_PORT."/");
+				if (MDB2::isError($conexion)){ // ME FIJO SI HAY ERROR EN LA CONEXION, ES LA MISMA SENTENCIA QUE LA QUE HAY ARRIBA AL CREAR LA BASE DE DATOS
+					die ($conexion->getMessage());
 					unlink('./site.conf.php'); // BORRO EL SITE.CONF SI SE PRODUJO ERROR
 					header("Location: ./instalar.php?error=error");
 				}
-				$conexion->query("CREATE DATABASE ".$_POST['DB_NAME']);
-				if (DB::isError($conexion))
-								die("EL SERVIDOR DIJO: ".$conexion->getMessage());
+				$conexion->exec("CREATE DATABASE ".$_POST['DB_NAME']);
+				if (MDB2::isError($conexion))
+					die("EL SERVIDOR DIJO: ".$conexion->getMessage());
 			}
 		/////////// ARMO LAS CONSULTAS, PERO TODAVIA NO LAS EJECUTO
 		$arreglo_de_consultas = array();
@@ -167,7 +173,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$arreglo_de_consultas[3] = "CREATE TABLE `articulos` (
 		  `id` int(4) unsigned NOT NULL auto_increment,
-		  `idUsuario` int(4) unsigned NOT NULL,
+		  `idusuario` int(4) unsigned NOT NULL,
 		  `titulo` varchar(100) character set utf8 collate utf8_unicode_ci NOT NULL,
 		  `descripcion` text character set utf8 collate utf8_unicode_ci NOT NULL,
 		  `usuario` varchar(30) character set utf8 collate utf8_unicode_ci NOT NULL,
@@ -191,7 +197,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$arreglo_de_consultas[5] = "CREATE TABLE `eventos` (
 		  `id` int(4) unsigned NOT NULL auto_increment,
-		  `idUsuario` int(4) unsigned NOT NULL,
+		  `idusuario` int(4) unsigned NOT NULL,
 		  `titulo` varchar(100) character set utf8 collate utf8_unicode_ci NOT NULL,
 		  `lugar` varchar(255) character set utf8 collate utf8_unicode_ci NOT NULL,
 		  `fecha_comienzo` date NOT NULL,
@@ -222,7 +228,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		  `nombre` varchar(60) collate utf8_unicode_ci NOT NULL,
 		  `url` varchar(254) collate utf8_unicode_ci NOT NULL,
 		  `descripcion` varchar(254) collate utf8_unicode_ci default NULL,
-		  `idUsuario` int(1) unsigned NOT NULL,
+		  `idusuario` int(1) unsigned NOT NULL,
 		  `usuario` varchar(30) character set utf8 collate utf8_unicode_ci NOT NULL,
 		  `fecha` date NOT NULL,
 		  PRIMARY KEY  (`id`)
@@ -246,7 +252,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		$arreglo_de_consultas[9] = "CREATE TABLE `menu_items` (
 		  `id` int(4) NOT NULL auto_increment,
-		  `idUsuario` int(1) unsigned NOT NULL,
+		  `idusuario` int(1) unsigned NOT NULL,
 		  `titulo` varchar(40) collate utf8_unicode_ci NOT NULL,
 		  `link` varchar(60) collate utf8_unicode_ci NOT NULL,
 		  PRIMARY KEY  (`id`)
@@ -261,7 +267,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		  `desc_larga` longtext collate utf8_unicode_ci NOT NULL,
 		  `fecha` date NOT NULL,
 		  `nombre_largo` text collate utf8_unicode_ci NOT NULL,
-		  `idUsuario` int(4) unsigned NOT NULL COMMENT 'Quien posteo la noticia',
+		  `idusuario` int(4) unsigned NOT NULL COMMENT 'Quien posteo la noticia',
 		  `usuario` varchar(30) character set utf8 collate utf8_unicode_ci NOT NULL,
 		  PRIMARY KEY  (`id`)
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1" ;
@@ -287,7 +293,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		 $arreglo_de_consultas[12] = "CREATE TABLE `notas_recomendadas` (
 						`id` INT( 4 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-						`idUsuario` INT( 4 ) UNSIGNED NOT NULL ,
+						`idusuario` INT( 4 ) UNSIGNED NOT NULL ,
 						`titulo` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
 						`nota` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
 						`fecha` date NOT NULL,
@@ -319,7 +325,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		
 		// CREACION DEL MENU
 		
-		$arreglo_de_consultas[20] =	"INSERT INTO `menu_items` (`id`, `idUsuario`, `titulo`, `link`) VALUES
+		$arreglo_de_consultas[20] =	"INSERT INTO `menu_items` (`id`, `idusuario`, `titulo`, `link`) VALUES
 		(NULL, 1, 'Administrar Usuarios', './administrar_participantes.php'),
 		(NULL, 0, 'Modificar datos', './modificar_datos.php'),
 		(NULL, 0, 'Mis Novedades', './mis_novedades.php'),
@@ -356,7 +362,7 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 							  `id` int(8) unsigned NOT NULL auto_increment,
 							  `date` int(64) NOT NULL,
 							  `username` varchar(32) character set utf8 collate utf8_unicode_ci NOT NULL,
-							  `idUsuario` int(4) unsigned NOT NULL,
+							  `idusuario` int(4) unsigned NOT NULL,
 							  PRIMARY KEY  (`id`),
 							  UNIQUE KEY `username` (`username`)
 							) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1"; 
@@ -364,15 +370,15 @@ if ( (file_exists('./site.conf.php')) | (!(isset($_POST['DB_USERNAME']))) ){ // 
 		// Ejecuto las consultas antes definidas
 		$arreglos_nombre_tablas = array("archivo_articulo","articulos","contacto","css_list","eventos","imagen_articulo","links_interes","mensajes","menu_items","novedades","notas_recomendadas","usuarios","usuarios_online"); // ARREGLO PARA COMPROBAR QUE SI EXISTE UNA TABLA BORRE LA MISMA
 		
-		$conexion = DB::connect(DB_TYPE."://".DB_USERNAME.":".DB_PASSWORD."@".DB_HOST.":".DB_LISTEN_PORT."/".DB_NAME);
-		if (DB::isError($conexion)){ // ME FIJO SI HAY ERROR EN LA CONEXION, ES LA MISMA SENTENCIA QUE LA QUE HAY ARRIBA AL CREAR LA BASE DE DATOS
+		$conexion = MDB2::connect(DB_TYPE."://".DB_USERNAME.":".DB_PASSWORD."@".DB_HOST.":".DB_LISTEN_PORT."/".DB_NAME);
+		if (MDB2::isError($conexion)){ // ME FIJO SI HAY ERROR EN LA CONEXION, ES LA MISMA SENTENCIA QUE LA QUE HAY ARRIBA AL CREAR LA BASE DE DATOS
 			unlink('./site.conf.php'); // BORRO EL SITE.CONF SI SE PRODUJO ERROR
 			header("Location: ./instalar.php?error='Error en la conexion con la base de datos, compruebe los datos ingresados");
 		}
 		// BORRO LAS TABLAS SI ES QUE EXISTEN
 		
 		foreach ($arreglos_nombre_tablas as $tabla)
-			$conexion->query("DROP TABLE ".$tabla);
+			$conexion->exec("DROP TABLE ".$tabla);
 			
 		// EJECUTO LAS CONSULTAS
 		for($x=1;$x<23;$x++){

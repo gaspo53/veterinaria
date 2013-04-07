@@ -1,7 +1,7 @@
 <?php
 
 //ESTE PHP MUESTRA EL PERFIL DEL USUARIO ELEGIDO
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 if (hay_alguien()){
@@ -11,7 +11,7 @@ if (hay_alguien()){
 	if (tiene_permisos()) // SI ES UN ADMIN, MESTRA TODOS, SIN IMPORTAR SU ESTADO
 			$consulta ="SELECT * FROM usuarios WHERE id = $id_usuario";
 	$resul=$con->query($consulta);
-	if ($lineax = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	if ($lineax = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$lineax->nombre = pasarATexto($lineax->nombre);
 		$lineax->apellido = pasarATexto($lineax->apellido);
 		$lineax->direccion = pasarATexto($lineax->direccion);

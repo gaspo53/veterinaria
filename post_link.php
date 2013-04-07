@@ -1,6 +1,6 @@
 <?php
-  //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA EL LINK DE INTERÉS
-  include_once("DB.php");
+  //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA EL LINK DE INTERï¿½S
+  
   include_once("inicializar.php");
   include_once('./login_logout.php');
 
@@ -16,11 +16,11 @@
   		$username = getSessionUsername();
 
   		//INSERTA LOS DATOS A LA TABLA links_interes
-  		$consulta ="INSERT INTO links_interes (id ,nombre ,url ,idUsuario ,descripcion ,usuario ,fecha)
+  		$consulta ="INSERT INTO links_interes (id ,nombre ,url ,idusuario ,descripcion ,usuario ,fecha)
   		VALUES (NULL , '$postParameters[0]', '$postParameters[1]', '$postParameters[2]', '$postParameters[3]', '$username', '$fecha')";
   		$resul=$con->query($consulta);
 
-  		if (DB::isError($resul)){
+  		if (MDB2::isError($resul)){
   				$smarty->assign('error','EL LINK NO SE PUDO CARGAR');
   		} else {
   				$smarty->assign('link_temp','./listar_links_interes.php');

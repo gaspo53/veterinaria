@@ -11,7 +11,7 @@ function getFiles($id){
 	$resul=$con->query($consulta);
 	$cont=0;
 	$arreglo = array();
-	while ($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$linea->file_path = blancosAHtml($linea->file_path);
 		$arreglo[$cont]=$linea;
 		$cont++;
@@ -26,7 +26,7 @@ function getImages($id){
 	$resul=$con->query($consulta);
 	$cont=0;
 	$arreglo = array();
-	while ($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$linea->file_path = blancosAHtml($linea->file_path);
 		$arreglo[$cont]=$linea;
 		$cont++;
@@ -42,13 +42,13 @@ function borrarArchivosArticulo($id_articulo){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM archivo_articulo WHERE id_articulo = '$id_articulo'";
 	$resul=$con->query($consulta);
-	while ($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$arreglo_archivos[$cont] = $linea->file_path;
 		$cont++;
 	}
 	$consulta ="SELECT * FROM imagen_articulo WHERE id_articulo = '$id_articulo'";
 	$resul=$con->query($consulta);
-	while ($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$arreglo_archivos[$cont] = $linea->file_path;
 		$cont++;
 	}
@@ -63,11 +63,11 @@ function borrarArchivosArticulo($id_articulo){
 function asignarMenu(){
 	$tipo = getSessionUserType();
 	$con = conectar_DB();
-	$consu = "SELECT * FROM menu_items WHERE (idUsuario = '$tipo') OR (idUsuario = '0') ORDER BY titulo ASC";
+	$consu = "SELECT * FROM menu_items WHERE (idusuario = '$tipo') OR (idusuario = '0') ORDER BY titulo ASC";
 	$resul = $con->query($consu);
 	$cont = 0;
 	$arrd = array();
-	while ($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$arrd[$cont] = $linea;
 		$cont++;
 	}
@@ -85,7 +85,7 @@ function obtenerAdminUsername(){
 	$conect = conectar_DB();
 	$consulta ="SELECT * FROM usuarios WHERE tipo = ".ES_ADMIN;
 	$resul=$conect->query($consulta);
-	if($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	if($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		return($linea->username);
 	}
 }
@@ -94,7 +94,7 @@ function get_user_data($userId){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM usuarios WHERE id = '$userId'";
 	$resul=$con->query($consulta);
-	$linea = $resul->fetchRow(DB_FETCHMODE_OBJECT);
+	$linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT);
 	$con-> disconnect();
 	return($linea);
 }
@@ -103,7 +103,7 @@ function get_user_data_from_username($user){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM usuarios WHERE username = '$user'";
 	$resul=$con->query($consulta);
-	$linea = $resul->fetchRow(DB_FETCHMODE_OBJECT);
+	$linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT);
 	$con-> disconnect();
 	return($linea);
 }
@@ -120,7 +120,7 @@ function listarUsuarios(){
 	$resul=$con->query($consulta);
 	$cont = 0;
 	$arr = array();
-	while ($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$arr[$cont] = $linea;
 		$cont++;
 	}
@@ -135,7 +135,7 @@ function getCSS($css_id){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM css_list WHERE id = '$css_id'";
 	$resul=$con->query($consulta);
-	if($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	if($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$con->disconnect();
 		return($linea);
 	}
@@ -148,7 +148,7 @@ function listarCSS(){
 	$resul=$con->query($consulta);
 	$cont = 0;
 	$arr = array();
-	while ($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$arr[$cont] = $linea;
 		$cont++;
 	}
@@ -207,7 +207,7 @@ function validarStrings($string_array)
 
 
 function conectar_DB(){ // CONECTA A LA BASE DE DATOS DEPENDIENDO DE site.conf.php
-	return(DB::connect(DB_TYPE."://".DB_USERNAME.":".DB_PASSWORD."@".DB_HOST.":".DB_LISTEN_PORT."/".DB_NAME));
+	return(MDB2::connect(DB_TYPE."://".DB_USERNAME.":".DB_PASSWORD."@".DB_HOST.":".DB_LISTEN_PORT."/".DB_NAME));
 }
 
 ///////// FUNCIONES RELACIONADAS CON LOS PERMISOS DE LOS ARITUCLOS
@@ -215,7 +215,7 @@ function es_duenio_del_mensaje($id_mensaje){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM mensajes WHERE id = '$id_mensaje'";
 	$resul=$con->query($consulta);
-	if($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	if($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		if( (hay_alguien()) && (($linea->destinatario) != (getSessionUsername())) ){
 			return(FALSE);
 		}
@@ -229,12 +229,12 @@ function es_duenio_del_articulo($id_articulo){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM articulos WHERE id = '$id_articulo'";
 	$resul=$con->query($consulta);
-	if($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
-		if( (hay_alguien()) && (($linea->idUsuario) != (getSessionId())) ){
-			return(FALSE);
+	if($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
+		if( (hay_alguien()) && (($linea->idusuario) == (getSessionId())) ){
+			return(TRUE);
 		}
 		else{ 
-			return(TRUE);
+			return(FALSE);
 			}
 	}else{return(FALSE);}	
 }
@@ -243,8 +243,8 @@ function es_duenio_del_evento($id_evento){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM eventos WHERE id = '$id_evento'";
 	$resul=$con->query($consulta);
-	if($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
-		if( (hay_alguien()) && (($linea->idUsuario) != (getSessionId())) ){
+	if($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
+		if( (hay_alguien()) && (($linea->idusuario) != (getSessionId())) ){
 			return(FALSE);
 		}
 		else{ 
@@ -257,8 +257,8 @@ function es_duenio_de_novedad($id_novedad){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM novedades WHERE id = '$id_novedad'";
 	$resul=$con->query($consulta);
-	if($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
-		if( (hay_alguien()) && (($linea->idUsuario) != (getSessionId())) ){
+	if($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
+		if( (hay_alguien()) && (($linea->idusuario) != (getSessionId())) ){
 			return(FALSE);
 		}
 		else{ 
@@ -271,8 +271,8 @@ function es_duenio_de_link($id_link){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM links_interes WHERE id = '$id_link'";
 	$resul=$con->query($consulta);
-	if($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
-		if( (hay_alguien()) && (($linea->idUsuario) != (getSessionId())) ){
+	if($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
+		if( (hay_alguien()) && (($linea->idusuario) != (getSessionId())) ){
 			return(FALSE);
 		}
 		else{ 
@@ -289,7 +289,7 @@ function es_admin($id){
 	$con = conectar_DB();
 	$consulta ="SELECT * FROM usuarios WHERE id = '$id'";
 	$resul=$con->query($consulta);
-	$linea = $resul->fetchRow(DB_FETCHMODE_OBJECT);
+	$linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT);
 	if (($linea->tipo) != ES_ADMIN){
 		return(FALSE);
 	}else

@@ -1,6 +1,6 @@
 <?php
 // MUESTRA EL FORMLUARIO PARA AGREGAR UN LINK
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 

@@ -1,5 +1,5 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 $flag_action = FALSE; /// FLAG PARA SABER SI SE PRODUJERON CAMBIOS Y ASI ENVIAR EL MAIL
@@ -14,7 +14,7 @@ if (tiene_permisos()){
 					WHERE username = '$user'";
 		$resul=$con->query($consulta);
 		$con-> disconnect();
-		if (!(DB::isError($resul))){
+		if (!(MDB2::isError($resul))){
 					$flag_action = TRUE;
 					$smarty->assign('error',UPDATE_USER_SUCCESS.' '.$user);
 		}else

@@ -1,16 +1,16 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
 if (hay_alguien()){
 		if ( ( es_duenio_del_articulo($_GET['id_imagen'])) || (es_admin(getSessionId())) ){
-				//SOLO LA PUEDE ELIMINAR SI ES EL DUEÑO O ES UN ADMIN
+				//SOLO LA PUEDE ELIMINAR SI ES EL DUEï¿½O O ES UN ADMIN
 			$id = $_GET['id_imagen'];
 			$con = conectar_DB();
 			$consulta ="DELETE FROM imagen_articulo WHERE id = '$id'";
 			$resul=$con->query($consulta);
-			if (DB::isError($resul)){
+			if (MDB2::isError($resul)){
 					$smarty->assign('error',DELETE_IMAGE_ERROR);
 			} else {
 					if (file_exists($_GET['file_path'])){

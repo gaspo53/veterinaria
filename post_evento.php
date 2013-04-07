@@ -1,6 +1,6 @@
 <?php
   //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA EL EVENTO
-  include_once("DB.php");
+  
   include_once("inicializar.php");
   include_once('./login_logout.php');
 
@@ -16,11 +16,11 @@
   		$username = getSessionUsername();
   
   		//INSERTA LOS DATOS A LA TABLA eventos
-  		$consulta ="INSERT INTO eventos (id ,titulo ,descripcion, lugar ,fecha_comienzo ,idUsuario, fecha_fin ,usuario ,fecha)
+  		$consulta ="INSERT INTO eventos (id ,titulo ,descripcion, lugar ,fecha_comienzo ,idusuario, fecha_fin ,usuario ,fecha)
   		VALUES (NULL , '$postParameters[0]', '$postParameters[1]', '$postParameters[2]', '$postParameters[3]','$postParameters[4]','$postParameters[5]', '$username', '$fecha')";
   		$resul=$con->query($consulta);
   
-  		if (DB::isError($resul)){
+  		if (MDB2::isError($resul)){
   				$smarty->assign('error','EL EVENTO NO SE PUDO CARGAR');
   		} else {
   				$smarty->assign('link_temp','./eventos.php');

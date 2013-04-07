@@ -1,6 +1,6 @@
 <?php
 // MUESTRA EL FORMLUARIO PARA VER LOS EVENTOS DE UN USUARIO (SOLO ADMIN)
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 include_once('./tomar_links.php');

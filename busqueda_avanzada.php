@@ -1,6 +1,6 @@
 <?php
-     //MUESTRA EL FORMULARIO DE LA BÚSQUEDA AVANZADA (form_busqueda.tpl)
-     include_once("DB.php");
+     //MUESTRA EL FORMULARIO DE LA Bï¿½SQUEDA AVANZADA (form_busqueda.tpl)
+     
      include_once("inicializar.php");
      include_once('./login_logout.php');
      $smarty->assign('template','form_busqueda.tpl');

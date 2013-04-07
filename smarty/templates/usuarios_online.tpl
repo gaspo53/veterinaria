@@ -2,7 +2,7 @@
 {if $usuarios_online}
 	{foreach from=$usuarios_online item=actual}
 		<p>
-		<a href="./mostrar_perfil.php?id={$actual->idUsuario}">{$actual->username}</a>
+		<a href="./mostrar_perfil.php?id={$actual->idusuario}">{$actual->username}</a>
 		</p>
 	{/foreach}
 {else}

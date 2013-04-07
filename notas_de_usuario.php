@@ -1,5 +1,5 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -8,7 +8,7 @@ if ( (hay_alguien()) && (es_admin(getSessionId())) ){
 	$usuario = get_user_data_from_username($_GET['usuarios']);
 	$id_usuario = $usuario->id;
 	/* VARIABLES PARA EL PAGINADOR*/
-		 $_pagi_sql = "SELECT * FROM notas_recomendadas WHERE idUsuario = '$id_usuario' ORDER BY id DESC";
+		 $_pagi_sql = "SELECT * FROM notas_recomendadas WHERE idusuario = '$id_usuario' ORDER BY id DESC";
 		 
 		 $_pagi_cuantos = CANT_NOTAS_POR_PAGINA;
 													
@@ -22,7 +22,7 @@ if ( (hay_alguien()) && (es_admin(getSessionId())) ){
 	include_once('./paginator.inc.php');
 	$arreglo= array();
 	$cont=0;
-	while ($lineax = $_pagi_result->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($lineax = $_pagi_result->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$arreglo[$cont++]=$lineax;
 	}	
 	if ($cont == 0){

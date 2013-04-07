@@ -1,6 +1,6 @@
 <?php
 // ESTE PHP TOMA LAS ULTMAS 4 NOVEDADES PARA PONERLAS DEBAJO, EN LA BARRA LATERAL
-include_once("DB.php");
+
 include_once("inicializar.php");
 
 $con = conectar_DB();
@@ -9,7 +9,7 @@ $resul=$con->query($consulta);
 
 $cont = 0;
 $arr = array();
-while ($linea = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+while ($linea = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 	$arr[$cont] = $linea;
 	$arr[$cont]->id = $linea->id;
 	$arr[$cont]->desc_larga = pasarATexto($linea->desc_larga);

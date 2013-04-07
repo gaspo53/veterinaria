@@ -1,12 +1,12 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
 $busqueda = $_GET['text_buscar'];
 
 if  (validarStrings(array($busqueda))){
-                //ALMACENES DE LAS CONSULTAS SEGÚN LA TABLA EN LA QUE BUSQUE
+                //ALMACENES DE LAS CONSULTAS SEGï¿½N LA TABLA EN LA QUE BUSQUE
 		$con_eve = "SELECT id,titulo,descripcion,'eventos' FROM eventos WHERE (";
 		$con_art = "SELECT id,titulo,descripcion,'articulos' FROM articulos WHERE (";
 		$con_lin = "SELECT id,nombre,descripcion,'links' FROM links_interes WHERE (";
@@ -67,7 +67,7 @@ if  (validarStrings(array($busqueda))){
 		$contador = 0;
 
                 //CUENTA EN contador LA CANTIDAD DE RESULTADOS
-		While($row=$_pagi_result->fetchRow(DB_FETCHMODE_OBJECT)){
+		While($row=$_pagi_result->fetchRow(MDB2_FETCHMODE_OBJECT)){
 			$resultados[$contador] = $row;
 			$contador++;
 		}

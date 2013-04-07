@@ -1,6 +1,6 @@
 <?php
-  //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO ENVÍA EL MENSAJE DE CONTACTO
-  include_once("DB.php");
+  //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO ENVï¿½A EL MENSAJE DE CONTACTO
+  
   include_once("inicializar.php");
   include_once('./login_logout.php');
 
@@ -16,7 +16,7 @@
   	VALUES (NULL , '$postParameters[0]', '$postParameters[1]', '$postParameters[2]')";
   	$resul=$con->query($consulta);
   
-  	if (DB::isError($resul)){
+  	if (MDB2::isError($resul)){
   			$smarty->assign('error','EL MENSAJE NO SE PUDO ENVIAR');
   	} else {
   			$smarty->assign('error',"EL MENSAJE SE ENVIO CORRECTAMENTE, A LA BREVEDAD SE COMUNICAR&Aacute;N CON UD.");

@@ -1,6 +1,6 @@
 <?php
 //ESTE PHP MUESTRA EL FORM PARA ELGIR UN USUARIO A MODIFICAR, PERO SOLO PARA ADMIN
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once("login_logout.php");
 

@@ -1,16 +1,16 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
 if (hay_alguien()){
 		$id_mensaje = $_GET['id'];
 		if ((es_duenio_del_mensaje($_GET['id'])) || (es_admin(getSessionId()))){
-				//SOLO LO PUEDE ELIMINAR SI ES EL DUEÑO O ES UN ADMIN
+				//SOLO LO PUEDE ELIMINAR SI ES EL DUEï¿½O O ES UN ADMIN
 			$con = conectar_DB();
 			$consulta ="DELETE FROM mensajes WHERE id = '$id_mensaje'";
 			$resul=$con->query($consulta);
-			if (DB::isError($resul)){
+			if (MDB2::isError($resul)){
 					$smarty->assign('error',DELETE_MESSAGE_ERROR);
 			} else {
 					$smarty->assign('error', DELETE_MESSAGE_SUCCESS);

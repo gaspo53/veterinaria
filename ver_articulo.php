@@ -1,6 +1,6 @@
 <?php
 //ESTE PHP MUESTRA EL ARTICULO ELEGIDO, PERO CON LINKS DE AMIN PARA ELIMINARLO
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -10,10 +10,10 @@ if (hay_alguien()){
 	$user = getSessionId();
 	$consulta ="SELECT * FROM articulos WHERE (id = '$id_articulo')";
 	$resul=$con->query($consulta);
-	if ($lineax = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	if ($lineax = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$linea = $lineax;
 		$con-> disconnect();
-		if (($lineax->idUsuario == $user) || (es_admin(getSessionId()))){
+		if (($lineax->idusuario == $user) || (es_admin(getSessionId()))){
 			$linea->fecha = convertirFecha($linea->fecha);
 			$linea->descripcion = $linea->descripcion;
 			$linea->titulo = $linea->titulo;

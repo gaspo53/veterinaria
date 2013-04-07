@@ -1,5 +1,5 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 
 // PRIMERO ME FIJO SI HAY COOKIES SETEADAS Y SI EL USUARIO 
@@ -16,7 +16,7 @@ if (validarStrings(array($login,$password))){
  	$cont = conectar_DB();
 	$consu = "SELECT * FROM usuarios WHERE username = '$login' AND password = '$password'";
 	$re=$cont->query($consu);
-	if ($linea = $re->fetchRow(DB_FETCHMODE_OBJECT)){
+	if ($linea = $re->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		if ($linea->estado != USUARIO_ACTIVADO){
 		 	  $smarty->assign('error', USER_NOT_ACTIVE);
 		 } else 

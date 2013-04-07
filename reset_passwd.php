@@ -1,6 +1,6 @@
 <?php
 // ESTE PHP SETEA EL PASSWORD DE UN USUARIO A 123456, SOLO POR UN ADMIN
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -15,7 +15,7 @@ if (tiene_permisos()){
 					SET password = '$password'
 					WHERE username = '$user'";
 		$resul=$con->query($consulta);
-		if (!(DB::isError($resul))){
+		if (!(MDB2::isError($resul))){
 					$smarty->assign('error',' Se actualiz&oacute; correctamente el password de'.' '.$user.', ahora su nuevo password es "123456".');
 		}else
 		{ 

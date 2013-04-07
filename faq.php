@@ -1,5 +1,5 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 include_once('./tomar_links.php');

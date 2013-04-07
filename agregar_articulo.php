@@ -1,6 +1,6 @@
 <?php
 // MUESTRA EL FORMLUARIO PARA AGREGAR UN ARTICULO
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 

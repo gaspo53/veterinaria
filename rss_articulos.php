@@ -1,6 +1,6 @@
 <?php
 // ARMA UN XML (RSS 2.0) CON LOS ULTIMOS 20 ARTICULOS
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -31,7 +31,7 @@ include_once('./login_logout.php');
                 <managingEditor>'.$rss_email.'</managingEditor>
                 <webMaster>'.$rss_email.'</webMaster>';
        
-	while ($item = $result->fetchRow(DB_FETCHMODE_OBJECT)){        
+	while ($item = $result->fetchRow(MDB2_FETCHMODE_OBJECT)){        
 		   echo "<item>" ;
 		   $tie = pasarAISO($item->titulo);
            echo "<title>$tie</title>" ;

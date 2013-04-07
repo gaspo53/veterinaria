@@ -1,13 +1,13 @@
 <?php
 //ESTE PHP MUESTRA EL LINK ELEGIDA, PERO SOLO PARA VERLA
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 $con = conectar_DB();
 $id_link=$_GET['id'];
 $consulta ="SELECT * FROM links_interes WHERE id = $id_link";
 $resul=$con->query($consulta);
-if ($lineax = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+if ($lineax = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 	$lineax->fecha = convertirFecha($lineax->fecha);
 	$lineax->descripcion = pasarATexto($lineax->descripcion);
 	$lineax->nombre = pasarATexto($lineax->nombre);

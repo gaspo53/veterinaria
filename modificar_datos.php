@@ -1,6 +1,6 @@
 <?php
 //ESTE PHP MUESTRA EL FORM PARA MODIFICAR LOS DATOS DEL USUARIO LOGUEADO
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 if (hay_alguien()){

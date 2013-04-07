@@ -1,7 +1,7 @@
 <?php
 
 // ESTE PHP ES UTILIZADO POR LA FUNCION "checkInbox()" de JAVASCRIPT (AJAX) PARA COMPROBAR SI EL USUARIO TIENE MENSAJES NUEVOS
-include_once("DB.php");
+
 include_once("inicializar.php");
 if (hay_alguien()){
 		$idUser = getSessionUsername(); //El usuario quiere ver su Bandeja de Entrada
@@ -11,7 +11,7 @@ if (hay_alguien()){
 		$resul=$con->query($consulta);
 		$cont = 0;
 		$arrd = array();
-		while ($lineax = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+		while ($lineax = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 			$cont++;
 		}
 		$con-> disconnect();

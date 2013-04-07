@@ -1,8 +1,8 @@
 <?php
-     //REALIZA LA BÚSQUEDA AVANZADA SEGÚN LOS CRITERIOS SELECCIONADOS
+     //REALIZA LA Bï¿½SQUEDA AVANZADA SEGï¿½N LOS CRITERIOS SELECCIONADOS
 
   include_once("inicializar.php");
-  //ALMACENES DE LAS CONSULTAS SEGÚN LA TABLA EN LA QUE BUSQUE
+  //ALMACENES DE LAS CONSULTAS SEGï¿½N LA TABLA EN LA QUE BUSQUE
   $bus_nov = "";
   $bus_art = "";
   $bus_eve = "";
@@ -38,7 +38,7 @@
   $pal_todas = pasarAHtml($pal_todas);
   $pal_alguna = pasarAHtml($pal_alguna);
   $pal_ninguna = pasarAHtml($pal_ninguna);
-  // FIN CONVERSIÓN
+  // FIN CONVERSIï¿½N
 
   if (( $_GET['todas_palabras']!='')or($_GET['alguna_palabra']!='')or($_GET['sin_palabras']!='')){
 
@@ -88,7 +88,7 @@
   		//UNIMOS LAS 3 CONSULTAS DE ARRIBA
   		$bus_nov = "SELECT id , nombre_corto AS titulo , desc_corta AS descripcion , 'novedades' AS tipo FROM novedades WHERE (".$bus_nov.")";
   	}
-/* ¡¡¡¡ LOS COMENTARIOS DE ESTA BÚSQUEDA SE REPITEN PARA LAS DE ABAJO... SON IDÉNTICOS !!!!      */
+/* ï¿½ï¿½ï¿½ï¿½ LOS COMENTARIOS DE ESTA Bï¿½SQUEDA SE REPITEN PARA LAS DE ABAJO... SON IDï¿½NTICOS !!!!      */
   	if (  isset($_GET['bus_articulos'])  ){
   	//PARA BUSCAR LOS ARTICULOS
   		if ( sizeOf($pal_todas)>0 ){
@@ -264,7 +264,7 @@
   }else{
   }
 
-  //SI NO HAY QUE BUSCAR EN ALGUNA TABLA, REALIZA UNA CONSULTA QUE NO DEVUELVE NINGÚN RESULTADO.
+  //SI NO HAY QUE BUSCAR EN ALGUNA TABLA, REALIZA UNA CONSULTA QUE NO DEVUELVE NINGï¿½N RESULTADO.
   if ( $bus_nov == "") $bus_nov = "SELECT id,nombre_corto AS titulo,desc_corta AS descripcion,'novedades' AS tipo FROM novedades WHERE id<0";
   if ( $bus_art == "") $bus_art = "SELECT id,titulo,descripcion,'articulos' FROM articulos WHERE id<0";
   if ( $bus_eve == "") $bus_eve = "SELECT id,titulo,descripcion,'eventos' FROM eventos WHERE id<0";
@@ -293,7 +293,7 @@
   $contador = 0;
 
   //CUENTA EN contador LA CANTIDAD DE RESULTADOS
-  while($row=$_pagi_result->fetchRow(DB_FETCHMODE_OBJECT)){
+  while($row=$_pagi_result->fetchRow(MDB2_FETCHMODE_OBJECT)){
   	$resultados[$contador] = $row;
   	$contador++;
   }

@@ -1,21 +1,21 @@
 <?php
 
 // ESTE PHP SE USA PARA ACTUALIZAR LOS DATOS DE UN USUARIO, PUEDE SER EL MISMO O UN ADMIN MODIFICANDO A OTROS
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
 if (hay_alguien()){
 	if ( (getSessionUsername() == $_POST['user']) || ((es_admin(getSessionId()))) ){
 		$postParameters = array($_POST['nombre'], $_POST['apellido'], $_POST['oldPassword'], $_POST['pass'], $_POST['email'], $_POST['direccion'], $_POST['telefono'], $_POST['profesion'], $_POST['CSS'], $_POST['user']);
-		//Compruebo la contraseña
+		//Compruebo la contraseï¿½a
 		$con = conectar_DB();
 		$consulta = "SELECT password FROM usuarios WHERE username = '$postParameters[9]'";
 		$resul=$con->query($consulta);
-		$passwd = $resul->fetchRow(DB_FETCHMODE_OBJECT);
+		$passwd = $resul->fetchRow(MDB2_FETCHMODE_OBJECT);
 		
 		if ( ($passwd->password != md5($postParameters[2])) && (validarStrings(array($postParameters[2]))) ){
-			$smarty->assign('error',$postParameters[9]." LA CONTRASEÑA ANTERIOR NO CONCUERDA");
+			$smarty->assign('error',$postParameters[9]." LA CONTRASEï¿½A ANTERIOR NO CONCUERDA");
 		} else
 	      { 
 			if (!validarStrings(array($postParameters[2]))) { // SI LA PASSWD ORIGINAL ESTABA EN BLANCO, NO LA ACTUALIZO
@@ -29,7 +29,7 @@ if (hay_alguien()){
 				css = '$postParameters[8]'
 				WHERE username = '$postParameters[9]'";
 				$resul=$con->query($consulta);
-				if (!(DB::isError($resul))){
+				if (!(MDB2::isError($resul))){
 					if (getSessionUsername() == $postParameters[9]) // PREGUNTO SI UN ADMIN QUISO CAMBIAR A UN USUARIO O NO
 						setSessionCSS($postParameters[8]); // SI EL USUARIO MODIFICA SUS PROPIOS DATOS, LE ACTUALIZO EL CSS
 					$smarty->assign('error', $postParameters[9].' Se actualiz&oacute; correctamente');
@@ -49,7 +49,7 @@ if (hay_alguien()){
 					css = '$postParameters[8]'
 					WHERE username = '$postParameters[9]'";
 					$resul=$con->query($consulta);
-					if (!(DB::isError($resul))){
+					if (!(MDB2::isError($resul))){
 						if ( (getSessionRememberUser() == "on") & (getSessionUsername() == $postParameters[9]) ) 
 						// SI EL USUARIO SE LOGUEO CON LA OPCION DE RECORDAR Y UN ADMIN NO ESTA CAMBIANDO A OTRO USUARIO
 							updateCookie($postParameters[9],$md5Pass);

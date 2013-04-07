@@ -1,12 +1,12 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
 if (hay_alguien()){
 		$id_articulo = $_GET['id'];
 		if ((es_duenio_del_articulo($_GET['id'])) || (es_admin(getSessionId()))){ 
-			//SOLO LO PUEDE ELIMINAR SI ES EL DUEÑO O ES UN ADMIN
+			//SOLO LO PUEDE ELIMINAR SI ES EL DUEï¿½O O ES UN ADMIN
 			$con = conectar_DB();
 			$consulta ="DELETE FROM articulos WHERE id = '$id_articulo'";
 			$resul=$con->query($consulta);
@@ -17,7 +17,7 @@ if (hay_alguien()){
 			// POR ULTIMO LOS ARCHIVOS
 			$consulta ="DELETE FROM archivo_articulo WHERE id_articulo = '$id_articulo'";
 			$resul=$con->query($consulta);
-			if (DB::isError($resul)){
+			if (MDB2::isError($resul)){
 					$smarty->assign('error',DELETE_ARTICLE_ERROR);
 			} else {
 					$smarty->assign('error',DELETE_ARTICLE_SUCCESS);

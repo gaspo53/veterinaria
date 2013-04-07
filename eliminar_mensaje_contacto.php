@@ -1,5 +1,5 @@
 <?php
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -10,7 +10,7 @@ if (hay_alguien()){
 			$con = conectar_DB();
 			$consulta ="DELETE FROM contacto WHERE id = '$id_mensaje'";
 			$resul=$con->query($consulta);
-			if (DB::isError($resul)){
+			if (MDB2::isError($resul)){
 					$smarty->assign('error',DELETE_MESSAGE_ERROR);
 			} else {
 					$smarty->assign('error', DELETE_MESSAGE_SUCCESS);

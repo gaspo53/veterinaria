@@ -19,7 +19,7 @@ include_once('./login_logout.php');
 include_once('./paginator.inc.php');
 $cont = 0;
 $arrd = array();
-while ($lineax = $_pagi_result->fetchRow(DB_FETCHMODE_OBJECT)){
+while ($lineax = $_pagi_result->fetchRow(MDB2_FETCHMODE_OBJECT)){
 	$arrd[$cont] = $lineax;
 	$arrd[$cont]->fecha = convertirFecha($arrd[$cont]->fecha);
 	$cont++;

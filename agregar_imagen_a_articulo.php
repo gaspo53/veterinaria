@@ -1,6 +1,6 @@
 <?php
 // MUESTRA EL FORMLUARIO PARA AGREGAR UNA IMAGEN A UN ARTICLO EXISTENTE
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 if (hay_alguien()){

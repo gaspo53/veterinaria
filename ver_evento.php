@@ -1,6 +1,6 @@
 <?php
 //ESTE PHP MUESTRA EL EVENTO ELEGIDO, PERO CON LINKS DE AMIN PARA ELIMINARLO
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -11,10 +11,10 @@ if (hay_alguien()){
 	$user = getSessionId();
 	$consulta ="SELECT * FROM eventos WHERE (id = '$id_evento')";
 	$resul=$con->query($consulta);
-	if ($lineax = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+	if ($lineax = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$linea= $lineax;
 		$con-> disconnect();
-		if (($lineax->idUsuario == $user) || (es_admin(getSessionId()))){
+		if (($lineax->idusuario == $user) || (es_admin(getSessionId()))){
 			$linea->fecha = convertirFecha($linea->fecha);
 			$linea->fecha_comienzo = convertirFecha($linea->fecha_comienzo);
 			$linea->fecha_fin = convertirFecha($linea->fecha_fin);

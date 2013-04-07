@@ -1,10 +1,10 @@
 <?php
-  //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA EL ARCHIVO AL ARTÍCULO
-  include_once("DB.php");
+  //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA EL ARCHIVO AL ARTï¿½CULO
+  
   include_once("inicializar.php");
   include_once('./login_logout.php');
 
-  //AGREGA EL ARCHIVO CON NOMBRE $nombre AL ARTÍCULO $id_articulo
+  //AGREGA EL ARCHIVO CON NOMBRE $nombre AL ARTï¿½CULO $id_articulo
   function agregarArchivo($id_articulo,$path,$nombre){
   	$con = conectar_DB();
   	$consulta ="INSERT INTO archivo_articulo (id ,file_path, id_articulo ,nombre)
@@ -16,10 +16,10 @@
   //VERIFICA SI HAY ALGUIEN LOGUEADO
   if (hay_alguien()){
 
-        //VALIDA QUE EL NOMBRE ESTÉ COMPLETO
+        //VALIDA QUE EL NOMBRE ESTï¿½ COMPLETO
   	if ( validarStrings(array($_POST['nombre'])) ){
 
-  	                //VERIFICA QUE EL USUARIO LOGUEADO SEA EL DUEÑO DEL ARTÍCULO
+  	                //VERIFICA QUE EL USUARIO LOGUEADO SEA EL DUEï¿½O DEL ARTï¿½CULO
   			if (es_duenio_del_articulo($_GET['id'])){
   				$status = "";
   					
@@ -32,7 +32,7 @@
                                         //COMPRUEBA QUE EL NOMBRE HAGA REFERENCIA A UN ARCHIVO
   					if ($archivo != "") {
   						if (!(file_exists('./files'))){
-  							mkdir("./files",0700); //Crea el directorio donde se guardaran las imágenes y archivos de los artículos
+  							mkdir("./files",0700); //Crea el directorio donde se guardaran las imï¿½genes y archivos de los artï¿½culos
   						}
   					        
                                                 // GUARDAMOS EL ARCHIVO EN LA CARPETA files
@@ -54,7 +54,7 @@
   			} else {
   				$smarty->assign('error', ARTICLE_OWN);
   				}
-  	} else // SI NO CARGÓ EL NOMBRE DEL ARCHIVO
+  	} else // SI NO CARGï¿½ EL NOMBRE DEL ARCHIVO
   		{
   			$status = "DEBE COMPLETAR EL TITULO DEL ARCHIVO";
   		}

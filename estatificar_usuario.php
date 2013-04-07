@@ -1,6 +1,6 @@
 <?php
 //PHP USADO APRA CAMBIAR EL ESTADO DE UN PARTICIPANTE (ACTIVARLO, DESACTIVARLO O SUSPENDERLO) UN ADMIN
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 $activacion = $_GET['estado'];
@@ -14,7 +14,7 @@ if (tiene_permisos()){
 					estado = '$estado'
 					WHERE username = '$user'";
 			$resul=$con->query($consulta);
-			if (!(DB::isError($resul))){
+			if (!(MDB2::isError($resul))){
 						$smarty->assign('error',UPDATE_USER_SUCCESS.' '.$user);
 			}else
 			{ 

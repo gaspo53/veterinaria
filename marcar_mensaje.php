@@ -1,7 +1,7 @@
 <?php
 
 // ESTE PHP SE UTULIZA PARA MARCAR UN MESAJE (COMO LEIDO, NO LEIDO)
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -15,8 +15,8 @@ if ( es_duenio_del_mensaje($_GET['id']) ){
 			leido = '$leido'
 			WHERE (id = '$id')";
 	$resul=$con->query($consulta);
-	if (!(DB::isError($resul))){
-				$smarty->assign('error',' Se actualizó correctamente el estado del mensaje');
+	if (!(MDB2::isError($resul))){
+				$smarty->assign('error',' Se actualizï¿½ correctamente el estado del mensaje');
 	}else
 	{ 
 			$smarty->assign('error',' Se produjo un error en actualizar el mensaje');

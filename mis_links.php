@@ -1,13 +1,13 @@
 <?php
 //ESTE PHP MUESTRA LOS LINKS DEL USUARIO LOGUEADO
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
 if (hay_alguien()){
 	$idUser = getSessionId();
 	/* VARIABLES PARA EL PAGINADOR*/
-		 $_pagi_sql = "SELECT * FROM links_interes WHERE idUsuario = '$idUser' ORDER BY id DESC";
+		 $_pagi_sql = "SELECT * FROM links_interes WHERE idusuario = '$idUser' ORDER BY id DESC";
 		 
 		 $_pagi_cuantos = CANT_ARTICULOS_POR_PAGINA;
 													
@@ -21,7 +21,7 @@ if (hay_alguien()){
 	include_once('./paginator.inc.php');
 	$cont = 0;
 	$arrd = array();
-	while ($lineax = $_pagi_result->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($lineax = $_pagi_result->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$lineax->fecha = convertirFecha($lineax->fecha);
 		$arrd[$cont] = $lineax;
 		$cont++;

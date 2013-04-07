@@ -1,13 +1,13 @@
 <?php
 //ESTE PHP MUESTRA LA NOTA ELEGIDA, PERO SOLO PARA VERLA
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 $con = conectar_DB();
 $id_nota=$_GET['id'];
 $consulta ="SELECT * FROM notas_recomendadas WHERE id = $id_nota";
 $resul=$con->query($consulta);
-if ($lineax = $resul->fetchRow(DB_FETCHMODE_OBJECT)){
+if ($lineax = $resul->fetchRow(MDB2_FETCHMODE_OBJECT)){
 	$lineax->fecha = convertirFecha($lineax->fecha);
 	$lineax->nota = pasarATexto($lineax->nota);
 	$lineax->titulo = pasarATexto($lineax->titulo);

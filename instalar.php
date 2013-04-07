@@ -163,7 +163,6 @@ creada y disponer de un nombre de usuario y una contraseña de acceso, caso cont
         <td class="td_main" colspan="2">
 
         <form id="installform" method="post" action="./setup_site.php">
-        <input name="stage" value="3" type="hidden">
 
     <table class="install_table" align="center" cellpadding="3" cellspacing="3">
 
@@ -192,7 +191,7 @@ creada y disponer de un nombre de usuario y una contraseña de acceso, caso cont
             <tr>
                 <td class="td_left"><p>Base de datos <br />(caracteres SOLO alfab&eacute;ticos)</p></td>
                 <td class="td_right">
-                    <input size="40" name="DB_NAME" value="proy07db32" type="text"><br />
+                    <input size="40" name="DB_NAME" value="" type="text"><br />
 					<label for="DB_CREATE">La Base de datos no est&aacute; creada, <br />DESEO CREARLA</label>
                     <input size="40" name="DB_CREATE"  type="checkbox" >
                 </td>
@@ -201,13 +200,13 @@ creada y disponer de un nombre de usuario y una contraseña de acceso, caso cont
             <tr>
                 <td class="td_left"><p>Usuario de la BD </p></td>
                 <td class="td_right">
-                    <input size="40" name="DB_USERNAME" value="proy07user32" type="text">
+                    <input size="40" name="DB_USERNAME" value="" type="text">
                 </td>
             </tr>
 			<tr>
                 <td class="td_left"><p>Contraseña</p></td>
                 <td class="td_right">
-                    <input size="40" name="DB_PASSWORD" value="utsAKQ.h" type="password">
+                    <input size="40" name="DB_PASSWORD" value="" type="password">
                 </td>
             </tr>
 			<tr>

@@ -1,6 +1,6 @@
 <?php
-  //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA EL ARTÍCULO
-  include_once("DB.php");
+  //VERIFICA QUE LOS DATOS RECIBIDOS ESTEN COMPLETOS, Y LUEGO AGREGA EL ARTï¿½CULO
+  
   include_once("inicializar.php");
   include_once('./login_logout.php');
 
@@ -16,11 +16,11 @@
   		$username = getSessionUsername();
   		
   		//INSERTA LOS DATOS A LA TABLA articulos
-  		$consulta ="INSERT INTO articulos (id , titulo ,descripcion, idUsuario ,usuario ,fecha)
+  		$consulta ="INSERT INTO articulos (id , titulo ,descripcion, idusuario ,usuario ,fecha)
   								VALUES (NULL , '$postParameters[0]', '$postParameters[1]', '$postParameters[2]', '$username', '$fecha')";
   		$resul=$con->query($consulta);
 
-  		if (DB::isError($resul)){
+  		if (MDB2::isError($resul)){
   				$smarty->assign('error','EL ARTICULO NO SE PUDO CARGAR');
   		} else {
   				$smarty->assign('link_temp','./listar_articulos.php');

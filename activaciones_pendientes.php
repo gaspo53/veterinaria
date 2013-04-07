@@ -1,7 +1,7 @@
 <?php
 
 // MUESTRA LAS ACTIVACIONES DE USUARIOS QUE EL ADMINISTRADOR TIENE QUE REALIZAR (SOLO LOS DESACTIVADOS, NO LOS SUSPENDIDOS)
-include_once("DB.php");
+
 include_once("inicializar.php");
 include_once('./login_logout.php');
 
@@ -25,7 +25,7 @@ if (!(tiene_permisos())){
 	include_once('./paginator.inc.php');
 	$cont = 0;
 	$arrd = array();
-	while ($lineax = $_pagi_result->fetchRow(DB_FETCHMODE_OBJECT)){
+	while ($lineax = $_pagi_result->fetchRow(MDB2_FETCHMODE_OBJECT)){
 		$arrd[$cont] = $lineax;
 		$cont++;
 	}
